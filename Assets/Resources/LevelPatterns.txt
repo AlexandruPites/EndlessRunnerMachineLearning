@@ -1,0 +1,75 @@
+
+CoinLine: 1 1.0 3 1.0 0.5
+
+[Pattern]
+Name: The Rolling Tunnel
+. . .
+. . .
+. . .
+B B B
+. . .
+
+CoinLine: 1 1.0 4 1.5 0.5
+
+[Pattern]
+Name: Classic Train Station
+T . T
+T . T
+R . R
+. . .
+. . .
+
+CoinLine: 1 1.0 2 2.0 0.5
+CoinLine: 1 5.0 1 0.0 1.5
+CoinLine: 1 7.0 1 0.0 2.5
+CoinLine: 1 9.0 1 0.0 1.5
+
+[Pattern]
+Name: Ramp to Train to Ground
+. . .
+. . .
+. T .
+. R .
+. . .
+
+CoinLine: 1 3.0 2 2.0 2.0
+CoinLine: 1 7.0 1 0.0 1.5
+CoinLine: 1 9.0 1 0.0 0.5
+
+[Pattern]
+Name: Double Staircase
+T T .
+R T .
+. R .
+. . .
+. . .
+
+CoinLine: 2 1.0 5 2.0 0.5
+
+[Pattern]
+Name: High and Low
+B . B
+. . .
+. H .
+. . .
+. . .
+
+CoinLine: 1 1.0 1 0.0 0.5
+CoinLine: 1 3.0 1 0.0 1.0
+CoinLine: 1 5.0 1 0.0 2.5
+CoinLine: 1 7.0 1 0.0 1.0
+CoinLine: 1 9.0 1 0.0 0.5
+
+[Pattern]
+Name: The Coin Arch
+. . .
+. . .
+H . H
+. . .
+. . .
+
+CoinLine: 1 1.0 1 0.0 0.5
+CoinLine: 1 3.0 1 0.0 1.5
+CoinLine: 1 5.0 1 0.0 2.8
+CoinLine: 1 7.0 1 0.0 1.5
+CoinLine: 1 9.0 1 0.0 0.5

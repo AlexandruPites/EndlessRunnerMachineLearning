@@ -1,0 +1,75 @@
+// Spawns 3 ground coins leading up to the center safe zone
+CoinLine: 1 1.0 3 1.0 0.5
+
+[Pattern]
+Name: The Rolling Tunnel
+. . .
+. . .
+. . .
+B B B
+. . .
+// A satisfying line of 4 ground coins rolling directly under the barrier
+CoinLine: 1 1.0 4 1.5 0.5
+
+[Pattern]
+Name: Classic Train Station
+T . T
+T . T
+R . R
+. . .
+. . .
+// Ground coins leading up, then a perfect jump arc between the two trains
+CoinLine: 1 1.0 2 2.0 0.5
+CoinLine: 1 5.0 1 0.0 1.5
+CoinLine: 1 7.0 1 0.0 2.5
+CoinLine: 1 9.0 1 0.0 1.5
+
+[Pattern]
+Name: Leap of Faith (Ramp to Train to Ground)
+. . .
+. . .
+. T .
+. R .
+. . .
+// Coins guide the player up the ramp, across the train, and trace their physical fall back to the ground
+CoinLine: 1 3.0 2 2.0 2.0
+CoinLine: 1 7.0 1 0.0 1.5
+CoinLine: 1 9.0 1 0.0 0.5
+
+[Pattern]
+Name: Double Staircase
+T T .
+R T .
+. R .
+. . .
+. . .
+// A long trail of 5 ground coins in the right lane encouraging the player to stay safe
+CoinLine: 2 1.0 5 2.0 0.5
+
+[Pattern]
+Name: High and Low
+B . B
+. . .
+. H .
+. . .
+. . .
+// Guides the player straight, but dynamically arcs OVER the Hurdle at Z=5 so they don't miss coins while jumping!
+CoinLine: 1 1.0 1 0.0 0.5
+CoinLine: 1 3.0 1 0.0 1.0
+CoinLine: 1 5.0 1 0.0 2.5
+CoinLine: 1 7.0 1 0.0 1.0
+CoinLine: 1 9.0 1 0.0 0.5
+
+[Pattern]
+Name: The Coin Arch
+. . .
+. . .
+H . H
+. . .
+. . .
+// A flawless physics-based parabola peaking at exactly 2.5, right in the center of the player's jump volume.
+CoinLine: 1 1.0 1 0.0 0.5
+CoinLine: 1 3.0 1 0.0 1.5
+CoinLine: 1 5.0 1 0.0 2.8
+CoinLine: 1 7.0 1 0.0 1.5
+CoinLine: 1 9.0 1 0.0 0.5

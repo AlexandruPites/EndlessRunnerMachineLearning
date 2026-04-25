@@ -1,0 +1,7 @@
+[Pattern]
+Name: Easy Breather
+. W .
+. . .
+W . .
+. . W
+. . .
