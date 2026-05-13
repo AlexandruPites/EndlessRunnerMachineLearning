@@ -32,6 +32,12 @@ public class GameManager : MonoBehaviour
     [Header("System References")]
     public TrackSpawner trackSpawner;
     public KinematicRunner playerScript;
+    public SubwayAgent agent;
+    
+    [Header("Training Configuration")]
+    public RewardConfig rewardConfig;
+    public bool isTrainingMode = true;
+    
     
     
     void Update()
@@ -88,7 +94,7 @@ public class GameManager : MonoBehaviour
         float speedLost = currentSpeed * stumbleSpeedDropPercentage;
         currentSpeed -= speedLost;
         
-        if (playerScript.TryGetComponent(out Agent agent)) agent.AddReward(-0.05f);
+        if (playerScript.TryGetComponent(out Agent agent)) agent.AddReward(rewardConfig.stumblePenalty);
         
         isStumbling = true; 
         
@@ -97,14 +103,14 @@ public class GameManager : MonoBehaviour
     public void AddCoinBonus()
     {
         score += coinBonus;
-        if (playerScript.TryGetComponent(out Agent agent)) agent.AddReward(1.0f);
+        if (playerScript.TryGetComponent(out Agent agent)) agent.AddReward(rewardConfig.coinBonus);
     }
     
     private void UpdateScoreUI()
     {
         if (scoreText != null) 
         {
-            scoreText.text = "Score: " + Mathf.FloorToInt(score).ToString();
+            scoreText.text = "Reward: " + agent.GetCumulativeReward().ToString();
         }
     }
     
@@ -117,7 +123,7 @@ public class GameManager : MonoBehaviour
         
         if (playerScript.TryGetComponent(out Agent agent)) 
         {
-            agent.SetReward(-100f);
+            agent.SetReward(rewardConfig.gameOverPenalty);
             agent.EndEpisode();
         }
         
@@ -126,8 +132,17 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         score = 0f;
-        targetSpeed = initialSpeed;
-        currentSpeed = initialSpeed;
+        if (isTrainingMode)
+        {
+            float randomStartSpeed = UnityEngine.Random.Range(initialSpeed, maxSpeed);
+            targetSpeed = randomStartSpeed;
+            currentSpeed = randomStartSpeed;
+        }
+        else
+        {
+            targetSpeed = initialSpeed;
+            currentSpeed = initialSpeed;
+        }
         isStumbling = false;
 
         if (trackSpawner != null) trackSpawner.ResetSpawner();

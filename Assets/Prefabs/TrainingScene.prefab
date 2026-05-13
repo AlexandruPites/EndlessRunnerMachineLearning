@@ -227,6 +227,9 @@ MonoBehaviour:
   scoreText: {fileID: 3550886789639543828}
   trackSpawner: {fileID: 8883139954756244747}
   playerScript: {fileID: 9112053955518311979}
+  agent: {fileID: 8307148530113601430}
+  rewardConfig: {fileID: 11400000, guid: d59195e6b39d0e24f97a9696d4db7207, type: 2}
+  isTrainingMode: 1
 --- !u!1 &7278131148311975406
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +589,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1987183821285266894, guid: 74c74dd11ab6e1e4b8c63d18deda039d, type: 3}
   m_PrefabInstance: {fileID: 5607205957522698069}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8307148530113601430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4510398521967145155, guid: 74c74dd11ab6e1e4b8c63d18deda039d, type: 3}
+  m_PrefabInstance: {fileID: 5607205957522698069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac92cb54712788649834f58b235b90dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SubwayAgent
 --- !u!114 &9112053955518311979 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3721179281582489982, guid: 74c74dd11ab6e1e4b8c63d18deda039d, type: 3}

@@ -28,14 +28,14 @@ public class KinematicRunner : MonoBehaviour
     public float gravity = -30f;
     public float feetOffset = 1.0f;
     
-    private bool isJumping = false;
+    public bool isJumping { get; private set; } = false;
     private float verticalVelocity = 0f;
     private float initialY;
 
     [Header("Roll Settings")]
     public float rollDuration = 0.8f;
     [Range(0.1f, 1f)] public float colliderHeightMultiplier = 0.5f;
-    private bool isRolling = false;
+    public bool isRolling { get; private set; } = false;
     private Coroutine rollCoroutine; 
 
     [Header("Visual Representation")]
@@ -43,6 +43,8 @@ public class KinematicRunner : MonoBehaviour
     [Range(0.1f, 1f)] public float visualScaleMultiplier = 0.4f; 
     private Vector3 originalMeshScale;
     private Vector3 originalMeshPosition;
+    
+    public bool isSwitchingLanes => Mathf.Abs(transform.localPosition.x - ((((int)currentLane - 1) * laneWidth) + bumpOffset)) > 0.05f;
 
     void Start()
     {
@@ -263,7 +265,10 @@ public class KinematicRunner : MonoBehaviour
 
             if (floorType == ObstacleType.Train)
             {
-                calculatedFloorY = 2.0f; 
+                if (transform.localPosition.y >= 1.5f + feetOffset) 
+                {
+                    calculatedFloorY = 2.0f; 
+                }
             }
             else if (floorType == ObstacleType.Ramp)
             {
